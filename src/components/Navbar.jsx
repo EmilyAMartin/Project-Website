@@ -1,24 +1,43 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const Navbar = () => {
+	const handleScroll = (id) => {
+		const section = document.getElementById(id);
+		if (section) {
+			section.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position='static'>
+			<AppBar
+				position='static'
+				color='transparent'
+				elevation={0}
+				sx={{ backgroundColor: 'transparent' }}
+			>
 				<Toolbar>
-					<Typography
-						variant='h6'
-						component='div'
-						sx={{ flexGrow: 1 }}
+					<Button
+						color='inherit'
+						onClick={() => handleScroll('home')}
 					>
-						Website Name
-					</Typography>
-					<Button color='inherit'>Home</Button>
-					<Button color='inherit'>About</Button>
-					<Button color='inherit'>Contact</Button>
+						Home
+					</Button>
+					<Button
+						color='inherit'
+						onClick={() => handleScroll('projects')}
+					>
+						Projects
+					</Button>
+					<Button
+						color='inherit'
+						onClick={() => handleScroll('contact')}
+					>
+						Contact
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</Box>
