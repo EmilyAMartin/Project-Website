@@ -1,8 +1,9 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Contact = () => {
 	return (
@@ -47,9 +48,34 @@ const Contact = () => {
 			<Button
 				variant='contained'
 				color='primary'
+				sx={{ textTransform: 'none' }}
 			>
 				Send
 			</Button>
+			<Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 3 }}>
+				<a
+					href='https://github.com/EmilyAMartin'
+					target='_blank'
+					rel='noopener noreferrer'
+					aria-label='GitHub'
+				>
+					<GitHubIcon
+						fontSize='large'
+						color='action'
+					/>
+				</a>
+				<a
+					href='https://www.linkedin.com/in/emily-martin-5864492ba'
+					target='_blank'
+					rel='noopener noreferrer'
+					aria-label='LinkedIn'
+				>
+					<LinkedInIcon
+						fontSize='large'
+						color='action'
+					/>
+				</a>
+			</Box>
 		</Box>
 	);
 };

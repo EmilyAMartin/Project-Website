@@ -17,24 +17,31 @@ const Navbar = () => {
 				position='static'
 				color='transparent'
 				elevation={0}
-				sx={{ backgroundColor: 'transparent' }}
+				sx={{
+					backgroundColor: 'transparent',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
 			>
 				<Toolbar>
 					<Button
 						color='inherit'
 						onClick={() => handleScroll('home')}
+						sx={{ textTransform: 'none', fontSize: '1.2rem' }}
 					>
 						Home
 					</Button>
 					<Button
 						color='inherit'
 						onClick={() => handleScroll('projects')}
+						sx={{ textTransform: 'none', fontSize: '1.2rem' }}
 					>
 						Projects
 					</Button>
 					<Button
 						color='inherit'
 						onClick={() => handleScroll('contact')}
+						sx={{ textTransform: 'none', fontSize: '1.2rem' }}
 					>
 						Contact
 					</Button>

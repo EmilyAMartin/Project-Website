@@ -12,7 +12,9 @@ const modalStyle = {
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: 400,
+	width: 1090,
+	maxHeight: '90vh',
+	overflowY: 'auto',
 	bgcolor: 'background.paper',
 	borderRadius: 2,
 	boxShadow: 24,
@@ -30,12 +32,12 @@ const ProjectCard = ({
 
 	return (
 		<>
-			<Card sx={{ maxWidth: 345, m: 2 }}>
+			<Card sx={{ maxWidth: 690, m: 3 }}>
 				<CardActionArea onClick={() => setOpen(true)}>
 					{image && (
 						<CardMedia
 							component='img'
-							height='140'
+							height='280'
 							image={image}
 							alt={title}
 						/>
@@ -43,14 +45,14 @@ const ProjectCard = ({
 					<CardContent>
 						<Typography
 							gutterBottom
-							variant='h6'
+							variant='h5'
 							component='div'
 						>
 							{title}
 						</Typography>
 						{subtitle && (
 							<Typography
-								variant='subtitle2'
+								variant='h7'
 								color='text.secondary'
 								gutterBottom
 							>
@@ -93,7 +95,12 @@ const ProjectCard = ({
 									key={idx}
 									src={src}
 									alt={`Screenshot ${idx + 1}`}
-									style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 4 }}
+									style={{
+										width: 250,
+										height: 250,
+										objectFit: 'cover',
+										borderRadius: 4,
+									}}
 								/>
 							))}
 						</Box>
