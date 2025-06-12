@@ -14,6 +14,7 @@ const Home = () => {
 				textAlign: { xs: 'center', md: 'left' },
 				flexDirection: { xs: 'column', md: 'row' },
 				px: 2,
+				gap: 6,
 			}}
 		>
 			<Box
