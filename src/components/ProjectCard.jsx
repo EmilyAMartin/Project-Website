@@ -12,13 +12,14 @@ const modalStyle = {
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: 1090,
+	width: { xs: '95vw', sm: 500, md: 800, lg: 1090 },
+	maxWidth: '95vw',
 	maxHeight: '90vh',
 	overflowY: 'auto',
 	bgcolor: 'background.paper',
 	borderRadius: 2,
 	boxShadow: 24,
-	p: 4,
+	p: 2,
 };
 
 const ProjectCard = ({
@@ -89,17 +90,29 @@ const ProjectCard = ({
 						{description}
 					</Typography>
 					{screenshots.length > 0 && (
-						<Box sx={{ display: 'flex', gap: 1, mt: 2, overflowX: 'auto' }}>
+						<Box
+							sx={{
+								display: 'flex',
+								flexDirection: { xs: 'column', sm: 'row' },
+								gap: 2,
+								mt: 2,
+								overflowX: { xs: 'visible', sm: 'auto' },
+								alignItems: 'center',
+							}}
+						>
 							{screenshots.map((src, idx) => (
-								<img
+								<Box
 									key={idx}
+									component='img'
 									src={src}
 									alt={`Screenshot ${idx + 1}`}
-									style={{
-										width: 250,
-										height: 250,
+									sx={{
+										width: { xs: '90vw', sm: 120, md: 180, lg: 250 },
+										maxWidth: { xs: '100%', sm: 180, md: 250 },
+										height: 'auto',
 										objectFit: 'cover',
-										borderRadius: 4,
+										borderRadius: 2,
+										flexShrink: 0,
 									}}
 								/>
 							))}
