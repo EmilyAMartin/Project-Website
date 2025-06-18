@@ -2,8 +2,11 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme, mode }) => {
 	const handleScroll = (id) => {
 		const section = document.getElementById(id);
 		if (section) {
@@ -45,6 +48,14 @@ const Navbar = () => {
 					>
 						Contact
 					</Button>
+					<IconButton
+						sx={{ ml: 2 }}
+						onClick={toggleTheme}
+						color='inherit'
+						aria-label='toggle dark mode'
+					>
+						{mode === 'dark' ? <DarkModeIcon /> : <LightModeIcon />}
+					</IconButton>
 				</Toolbar>
 			</AppBar>
 		</Box>
