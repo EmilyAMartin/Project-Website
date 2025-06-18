@@ -1,8 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const profileImg = '/profileimg.jpg';
-
 const Home = () => {
 	return (
 		<Box
@@ -26,7 +24,7 @@ const Home = () => {
 				}}
 			>
 				<img
-					src={profileImg}
+					src='/profileimg.jpg'
 					alt='Emily Martin'
 					style={{
 						width: 'min(80vw, 350px)',
