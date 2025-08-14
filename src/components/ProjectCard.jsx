@@ -9,8 +9,7 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 
@@ -267,52 +266,6 @@ const ProjectCard = ({
 										Screenshot {currentImageIndex + 1}
 									</Typography>
 								</Box>
-
-								{/* Navigation Arrows */}
-								{screenshots.length > 1 && (
-									<>
-										<IconButton
-											onClick={() =>
-												setCurrentImageIndex((prev) =>
-													prev === 0 ? screenshots.length - 1 : prev - 1
-												)
-											}
-											sx={{
-												position: 'absolute',
-												left: 16,
-												top: '50%',
-												transform: 'translateY(-50%)',
-												backgroundColor: 'rgba(255,255,255,0.9)',
-												backdropFilter: 'blur(4px)',
-												'&:hover': {
-													backgroundColor: 'rgba(255,255,255,1)',
-												},
-											}}
-										>
-											<ChevronLeftIcon />
-										</IconButton>
-										<IconButton
-											onClick={() =>
-												setCurrentImageIndex((prev) =>
-													prev === screenshots.length - 1 ? 0 : prev + 1
-												)
-											}
-											sx={{
-												position: 'absolute',
-												right: 16,
-												top: '50%',
-												transform: 'translateY(-50%)',
-												backgroundColor: 'rgba(255,255,255,0.9)',
-												backdropFilter: 'blur(4px)',
-												'&:hover': {
-													backgroundColor: 'rgba(255,255,255,1)',
-												},
-											}}
-										>
-											<ChevronRightIcon />
-										</IconButton>
-									</>
-								)}
 							</Box>
 
 							{/* Thumbnail Navigation */}
