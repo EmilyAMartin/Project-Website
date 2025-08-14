@@ -50,9 +50,9 @@ const Contact = () => {
 				sx={{
 					textTransform: 'none',
 					borderRadius: '25px',
-					backgroundColor: '#6a1b9a',
+					backgroundColor: '#00838f',
 					'&:hover': {
-						backgroundColor: '#4a148c',
+						backgroundColor: '#00695c',
 					},
 				}}
 			>
@@ -68,9 +68,9 @@ const Contact = () => {
 					<GitHubIcon
 						fontSize='large'
 						sx={{
-							color: '#6a1b9a',
+							color: '#00838f',
 							'&:hover': {
-								color: '#4a148c',
+								color: '#00695c',
 							},
 						}}
 					/>
@@ -84,9 +84,9 @@ const Contact = () => {
 					<LinkedInIcon
 						fontSize='large'
 						sx={{
-							color: '#6a1b9a',
+							color: '#00838f',
 							'&:hover': {
-								color: '#4a148c',
+								color: '#00695c',
 							},
 						}}
 					/>

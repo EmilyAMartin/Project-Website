@@ -6,6 +6,13 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Chip from '@mui/material/Chip';
+import Divider from '@mui/material/Divider';
 
 const modalStyle = {
 	position: 'absolute',
@@ -17,9 +24,9 @@ const modalStyle = {
 	maxHeight: '90vh',
 	overflowY: 'auto',
 	bgcolor: 'background.paper',
-	borderRadius: 2,
+	borderRadius: 3,
 	boxShadow: 24,
-	p: 2,
+	p: 3,
 };
 
 const ProjectCard = ({
@@ -30,32 +37,86 @@ const ProjectCard = ({
 	screenshots = [],
 }) => {
 	const [open, setOpen] = useState(false);
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
 	return (
 		<>
-			<Card sx={{ maxWidth: 690, m: 3 }}>
-				<CardActionArea onClick={() => setOpen(true)}>
+			<Card
+				sx={{
+					maxWidth: 690,
+					m: 3,
+					borderRadius: 3,
+					overflow: 'hidden',
+					transition: 'all 0.3s ease-in-out',
+					'&:hover': {
+						transform: 'translateY(-8px)',
+						boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+						'& .card-media': {
+							transform: 'scale(1.05)',
+						},
+						'& .zoom-icon': {
+							opacity: 1,
+						},
+					},
+				}}
+			>
+				<CardActionArea
+					onClick={() => setOpen(true)}
+					sx={{ position: 'relative' }}
+				>
 					{image && (
-						<CardMedia
-							component='img'
-							height='280'
-							image={image}
-							alt={title}
-						/>
+						<Box sx={{ position: 'relative', overflow: 'hidden' }}>
+							<CardMedia
+								component='img'
+								height='280'
+								image={image}
+								alt={title}
+								className='card-media'
+								sx={{
+									transition: 'transform 0.3s ease-in-out',
+									objectFit: 'cover',
+								}}
+							/>
+							<Box
+								className='zoom-icon'
+								sx={{
+									position: 'absolute',
+									top: '50%',
+									left: '50%',
+									transform: 'translate(-50%, -50%)',
+									opacity: 0,
+									transition: 'opacity 0.3s ease-in-out',
+									backgroundColor: 'rgba(0,0,0,0.7)',
+									borderRadius: '50%',
+									p: 1,
+								}}
+							>
+								<ZoomInIcon sx={{ color: 'white', fontSize: 32 }} />
+							</Box>
+						</Box>
 					)}
-					<CardContent>
+					<CardContent sx={{ p: 3 }}>
 						<Typography
 							gutterBottom
 							variant='h5'
 							component='div'
+							sx={{
+								fontWeight: 600,
+								mb: 1,
+							}}
 						>
 							{title}
 						</Typography>
 						{subtitle && (
 							<Typography
-								variant='h7'
+								variant='body2'
 								color='text.secondary'
-								gutterBottom
+								sx={{
+									fontSize: '0.9rem',
+									textTransform: 'uppercase',
+									letterSpacing: '0.5px',
+									fontWeight: 500,
+								}}
 							>
 								{subtitle}
 							</Typography>
@@ -66,56 +127,268 @@ const ProjectCard = ({
 			<Modal
 				open={open}
 				onClose={() => setOpen(false)}
+				sx={{
+					'& .MuiBackdrop-root': {
+						backdropFilter: 'blur(4px)',
+					},
+				}}
 			>
 				<Box sx={modalStyle}>
-					<Typography
-						variant='h5'
-						gutterBottom
+					<Box
+						sx={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'flex-start',
+							mb: 2,
+						}}
 					>
-						{title}
-					</Typography>
-					{subtitle && (
-						<Typography
-							variant='subtitle1'
-							color='text.secondary'
-							gutterBottom
-						>
-							{subtitle}
-						</Typography>
-					)}
-					<Typography
-						variant='body1'
-						gutterBottom
-					>
-						{description}
-					</Typography>
-					{screenshots.length > 0 && (
-						<Box
+						<Box>
+							<Typography
+								variant='h4'
+								sx={{
+									fontWeight: 600,
+									mb: 1,
+								}}
+							>
+								{title}
+							</Typography>
+							{subtitle && (
+								<Typography
+									variant='body1'
+									color='text.secondary'
+									sx={{
+										fontSize: '1rem',
+										textTransform: 'uppercase',
+										letterSpacing: '0.5px',
+										fontWeight: 500,
+									}}
+								>
+									{subtitle}
+								</Typography>
+							)}
+						</Box>
+						<IconButton
+							onClick={() => setOpen(false)}
 							sx={{
-								display: 'flex',
-								flexDirection: { xs: 'column', sm: 'row' },
-								gap: 2,
-								mt: 2,
-								overflowX: { xs: 'visible', sm: 'auto' },
-								alignItems: 'center',
+								color: 'text.secondary',
+								'&:hover': {
+									backgroundColor: 'rgba(0,0,0,0.04)',
+								},
 							}}
 						>
-							{screenshots.map((src, idx) => (
-								<Box
-									key={idx}
-									component='img'
-									src={src}
-									alt={`Screenshot ${idx + 1}`}
+							<CloseIcon />
+						</IconButton>
+					</Box>
+					<Box sx={{ mb: 3 }}>
+						<Chip
+							label='Project Description'
+							variant='outlined'
+							sx={{
+								mb: 2,
+								borderColor: '#00838f',
+								color: '#00838f',
+								fontWeight: 500,
+							}}
+						/>
+						<Typography
+							variant='body1'
+							sx={{
+								lineHeight: 1.8,
+								fontSize: '1.05rem',
+								backgroundColor: 'rgba(0, 131, 143, 0.03)',
+								p: 2,
+								borderRadius: 2,
+								borderLeft: '4px solid #00838f',
+							}}
+						>
+							{description}
+						</Typography>
+					</Box>
+
+					{screenshots.length > 0 && (
+						<Box sx={{ mt: 4 }}>
+							<Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+								<Chip
+									label={`Screenshots (${screenshots.length})`}
+									variant='outlined'
 									sx={{
-										width: { xs: '90vw', sm: 120, md: 180, lg: 250 },
-										maxWidth: { xs: '100%', sm: 180, md: 250 },
-										height: 'auto',
-										objectFit: 'cover',
-										borderRadius: 2,
-										flexShrink: 0,
+										borderColor: '#00838f',
+										color: '#00838f',
+										fontWeight: 500,
 									}}
 								/>
-							))}
+							</Box>
+
+							{/* Main Image Display */}
+							<Box sx={{ position: 'relative', mb: 2 }}>
+								<Box
+									component='img'
+									src={screenshots[currentImageIndex]}
+									alt={`Screenshot ${currentImageIndex + 1}`}
+									onError={(e) => {
+										e.target.style.display = 'none';
+										e.target.nextSibling.style.display = 'flex';
+									}}
+									sx={{
+										width: '100%',
+										height: 'auto',
+										maxHeight: '400px',
+										objectFit: 'contain',
+										borderRadius: 3,
+										boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+										transition: 'all 0.3s ease-in-out',
+									}}
+								/>
+								<Box
+									sx={{
+										display: 'none',
+										width: '100%',
+										height: '300px',
+										maxHeight: '400px',
+										backgroundColor: 'rgba(0, 131, 143, 0.1)',
+										borderRadius: 3,
+										border: '2px dashed #00838f',
+										justifyContent: 'center',
+										alignItems: 'center',
+										flexDirection: 'column',
+										color: '#00838f',
+									}}
+								>
+									<Typography
+										variant='h6'
+										sx={{ mb: 1 }}
+									>
+										Image Not Available
+									</Typography>
+									<Typography
+										variant='body2'
+										color='text.secondary'
+									>
+										Screenshot {currentImageIndex + 1}
+									</Typography>
+								</Box>
+
+								{/* Navigation Arrows */}
+								{screenshots.length > 1 && (
+									<>
+										<IconButton
+											onClick={() =>
+												setCurrentImageIndex((prev) =>
+													prev === 0 ? screenshots.length - 1 : prev - 1
+												)
+											}
+											sx={{
+												position: 'absolute',
+												left: 16,
+												top: '50%',
+												transform: 'translateY(-50%)',
+												backgroundColor: 'rgba(255,255,255,0.9)',
+												backdropFilter: 'blur(4px)',
+												'&:hover': {
+													backgroundColor: 'rgba(255,255,255,1)',
+												},
+											}}
+										>
+											<ChevronLeftIcon />
+										</IconButton>
+										<IconButton
+											onClick={() =>
+												setCurrentImageIndex((prev) =>
+													prev === screenshots.length - 1 ? 0 : prev + 1
+												)
+											}
+											sx={{
+												position: 'absolute',
+												right: 16,
+												top: '50%',
+												transform: 'translateY(-50%)',
+												backgroundColor: 'rgba(255,255,255,0.9)',
+												backdropFilter: 'blur(4px)',
+												'&:hover': {
+													backgroundColor: 'rgba(255,255,255,1)',
+												},
+											}}
+										>
+											<ChevronRightIcon />
+										</IconButton>
+									</>
+								)}
+							</Box>
+
+							{/* Thumbnail Navigation */}
+							{screenshots.length > 1 && (
+								<Box
+									sx={{
+										display: 'flex',
+										gap: 1,
+										justifyContent: 'center',
+										flexWrap: 'wrap',
+									}}
+								>
+									{screenshots.map((src, idx) => (
+										<Box
+											key={idx}
+											sx={{ position: 'relative' }}
+										>
+											<Box
+												component='img'
+												src={src}
+												alt={`Thumbnail ${idx + 1}`}
+												onClick={() => setCurrentImageIndex(idx)}
+												onError={(e) => {
+													e.target.style.display = 'none';
+													e.target.nextSibling.style.display = 'flex';
+												}}
+												sx={{
+													width: 60,
+													height: 60,
+													objectFit: 'cover',
+													borderRadius: 1,
+													cursor: 'pointer',
+													transition: 'all 0.2s ease-in-out',
+													border:
+														idx === currentImageIndex
+															? '3px solid #00838f'
+															: '3px solid transparent',
+													opacity: idx === currentImageIndex ? 1 : 0.7,
+													'&:hover': {
+														opacity: 1,
+														transform: 'scale(1.05)',
+													},
+												}}
+											/>
+											<Box
+												sx={{
+													display: 'none',
+													width: 60,
+													height: 60,
+													backgroundColor: 'rgba(0, 131, 143, 0.1)',
+													borderRadius: 1,
+													border: '2px dashed #00838f',
+													justifyContent: 'center',
+													alignItems: 'center',
+													cursor: 'pointer',
+													transition: 'all 0.2s ease-in-out',
+													borderColor: idx === currentImageIndex ? '#00838f' : 'transparent',
+													opacity: idx === currentImageIndex ? 1 : 0.7,
+													'&:hover': {
+														opacity: 1,
+														transform: 'scale(1.05)',
+													},
+												}}
+												onClick={() => setCurrentImageIndex(idx)}
+											>
+												<Typography
+													variant='caption'
+													sx={{ fontSize: '0.6rem', color: '#00838f' }}
+												>
+													{idx + 1}
+												</Typography>
+											</Box>
+										</Box>
+									))}
+								</Box>
+							)}
 						</Box>
 					)}
 				</Box>
