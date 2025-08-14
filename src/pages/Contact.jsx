@@ -47,8 +47,14 @@ const Contact = () => {
 			/>
 			<Button
 				variant='contained'
-				color='primary'
-				sx={{ textTransform: 'none' }}
+				sx={{
+					textTransform: 'none',
+					borderRadius: '25px',
+					backgroundColor: '#6a1b9a',
+					'&:hover': {
+						backgroundColor: '#4a148c',
+					},
+				}}
 			>
 				Send
 			</Button>
@@ -61,7 +67,12 @@ const Contact = () => {
 				>
 					<GitHubIcon
 						fontSize='large'
-						color='action'
+						sx={{
+							color: '#6a1b9a',
+							'&:hover': {
+								color: '#4a148c',
+							},
+						}}
 					/>
 				</a>
 				<a
@@ -72,7 +83,12 @@ const Contact = () => {
 				>
 					<LinkedInIcon
 						fontSize='large'
-						color='action'
+						sx={{
+							color: '#6a1b9a',
+							'&:hover': {
+								color: '#4a148c',
+							},
+						}}
 					/>
 				</a>
 			</Box>
