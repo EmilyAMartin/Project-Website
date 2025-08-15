@@ -18,6 +18,7 @@ const Projects = () => {
 				variant='h5'
 				align='center'
 				gutterBottom
+				mt={4}
 			>
 				Projects
 			</Typography>

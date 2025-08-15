@@ -1,10 +1,14 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useTheme, lighten } from '@mui/material/styles'; // Added
 
 const Home = () => {
+	const theme = useTheme(); // Added
 	return (
 		<Box
 			sx={{
+				backgroundColor: lighten(theme.palette.background.default, 0.05), // Added
+				borderRadius: 3, // Optional: for a softer look
 				minHeight: '60vh',
 				display: 'flex',
 				alignItems: 'center',
@@ -13,6 +17,8 @@ const Home = () => {
 				flexDirection: { xs: 'column', md: 'row' },
 				px: 2,
 				gap: 6,
+				py: 4, // Optional: add vertical padding
+				mt: 4, // Optional: add top margin
 			}}
 		>
 			<Box

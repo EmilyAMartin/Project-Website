@@ -4,12 +4,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useTheme, lighten } from '@mui/material/styles'; // Added
 
 const Contact = () => {
+	const theme = useTheme(); // Added
 	return (
 		<Box
-			component='form'
 			sx={{
+				backgroundColor: lighten(theme.palette.background.default, 0.05), // Added
+				borderRadius: 3, // Optional: for a softer look
+				p: 4, // Optional: padding
 				display: 'flex',
 				flexDirection: 'column',
 				gap: 2,
@@ -17,6 +21,7 @@ const Contact = () => {
 				margin: '0 auto',
 				mt: 4,
 			}}
+			component='form'
 			noValidate
 			autoComplete='off'
 		>
