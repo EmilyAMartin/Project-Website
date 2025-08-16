@@ -4,19 +4,34 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SendIcon from '@mui/icons-material/Send';
+import Tooltip from '@mui/material/Tooltip';
 import { useTheme, lighten } from '@mui/material/styles';
+import { useState } from 'react';
 
 const Contact = () => {
 	const theme = useTheme();
+	const [hover, setHover] = useState(false);
+	const [sending, setSending] = useState(false);
+
+	const handleSend = (e) => {
+		e.preventDefault();
+		setSending(true);
+		setTimeout(() => setSending(false), 1500); // Simulate send
+	};
+
 	return (
 		<Box
 			sx={{
-				backgroundColor: lighten(theme.palette.background.default, 0.05),
+				background: `linear-gradient(135deg, ${lighten(
+					theme.palette.primary.main,
+					0.85
+				)}, ${lighten(theme.palette.background.default, 0.25)})`,
 				minHeight: '60vh',
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
-				py: 4,
+				py: 6,
 				px: { xs: 1, sm: 2 },
 				width: '100%',
 			}}
@@ -25,31 +40,61 @@ const Contact = () => {
 				component='form'
 				noValidate
 				autoComplete='off'
+				onSubmit={handleSend}
 				sx={{
-					p: 4,
+					p: { xs: 2, sm: 4 },
 					display: 'flex',
 					flexDirection: 'column',
-					gap: 2,
-					maxWidth: 400,
+					gap: 3,
+					maxWidth: 420,
 					width: '100%',
-					boxShadow: 3,
-					borderRadius: 3,
-					background: theme.palette.background.paper, // Responsive to theme mode
+					boxShadow: hover ? 8 : 3,
+					borderRadius: 4,
+					background: theme.palette.background.paper,
 					color: theme.palette.text.primary,
+					transition: 'box-shadow 0.3s, transform 0.3s',
+					transform: hover ? 'translateY(-4px) scale(1.02)' : 'none',
 				}}
+				onMouseEnter={() => setHover(true)}
+				onMouseLeave={() => setHover(false)}
 			>
 				<Typography
-					variant='h5'
+					variant='h4'
 					align='center'
 					gutterBottom
+					sx={{
+						fontWeight: 700,
+						letterSpacing: 1,
+						background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+						WebkitBackgroundClip: 'text',
+						WebkitTextFillColor: 'transparent',
+					}}
 				>
-					Contact Me
+					Let’s Connect
+				</Typography>
+				<Typography
+					variant='body1'
+					align='center'
+					color='text.secondary'
+					sx={{ mb: 1 }}
+				>
+					Have a question or want to work together? Fill out the form below!
 				</Typography>
 				<TextField
 					label='Name'
 					variant='outlined'
 					required
 					fullWidth
+					InputLabelProps={{
+						sx: { color: theme.palette.text.secondary },
+					}}
+					InputProps={{
+						sx: {
+							'&:focus-within fieldset': {
+								borderColor: theme.palette.primary.main,
+							},
+						},
+					}}
 				/>
 				<TextField
 					label='Email'
@@ -57,6 +102,16 @@ const Contact = () => {
 					required
 					type='email'
 					fullWidth
+					InputLabelProps={{
+						sx: { color: theme.palette.text.secondary },
+					}}
+					InputProps={{
+						sx: {
+							'&:focus-within fieldset': {
+								borderColor: theme.palette.primary.main,
+							},
+						},
+					}}
 				/>
 				<TextField
 					label='Message'
@@ -65,54 +120,84 @@ const Contact = () => {
 					multiline
 					rows={4}
 					fullWidth
+					InputLabelProps={{
+						sx: { color: theme.palette.text.secondary },
+					}}
+					InputProps={{
+						sx: {
+							'&:focus-within fieldset': {
+								borderColor: theme.palette.primary.main,
+							},
+						},
+					}}
 				/>
 				<Button
+					type='submit'
 					variant='contained'
+					disabled={sending}
+					endIcon={<SendIcon />}
 					sx={{
 						textTransform: 'none',
 						borderRadius: '25px',
-						backgroundColor: '#00838f',
+						fontWeight: 600,
+						fontSize: '1.1rem',
+						py: 1.2,
+						background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+						boxShadow: 2,
+						transition: 'background 0.3s, transform 0.2s',
 						'&:hover': {
-							backgroundColor: '#00695c',
+							background: `linear-gradient(90deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+							transform: 'scale(1.03)',
 						},
-						width: '100%',
 					}}
 				>
-					Send
+					{sending ? 'Sending...' : 'Send Message'}
 				</Button>
-				<Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, mt: 3 }}>
-					<a
-						href='https://github.com/EmilyAMartin'
-						target='_blank'
-						rel='noopener noreferrer'
-						aria-label='GitHub'
+				<Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
+					<Tooltip
+						title='GitHub'
+						arrow
 					>
-						<GitHubIcon
-							fontSize='large'
-							sx={{
-								color: '#00838f',
-								'&:hover': {
-									color: '#00695c',
-								},
-							}}
-						/>
-					</a>
-					<a
-						href='https://www.linkedin.com/in/emily-martin-5864492ba'
-						target='_blank'
-						rel='noopener noreferrer'
-						aria-label='LinkedIn'
+						<a
+							href='https://github.com/EmilyAMartin'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='GitHub'
+						>
+							<GitHubIcon
+								fontSize='large'
+								sx={{
+									color: theme.palette.mode === 'dark' ? '#fff' : '#222',
+									transition: 'color 0.2s',
+									'&:hover': {
+										color: theme.palette.primary.main,
+									},
+								}}
+							/>
+						</a>
+					</Tooltip>
+					<Tooltip
+						title='LinkedIn'
+						arrow
 					>
-						<LinkedInIcon
-							fontSize='large'
-							sx={{
-								color: '#00838f',
-								'&:hover': {
-									color: '#00695c',
-								},
-							}}
-						/>
-					</a>
+						<a
+							href='https://www.linkedin.com/in/emily-martin-5864492ba'
+							target='_blank'
+							rel='noopener noreferrer'
+							aria-label='LinkedIn'
+						>
+							<LinkedInIcon
+								fontSize='large'
+								sx={{
+									color: theme.palette.mode === 'dark' ? '#fff' : '#222',
+									transition: 'color 0.2s',
+									'&:hover': {
+										color: theme.palette.primary.main,
+									},
+								}}
+							/>
+						</a>
+					</Tooltip>
 				</Box>
 			</Box>
 		</Box>

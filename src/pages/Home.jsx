@@ -1,14 +1,17 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useTheme, lighten } from '@mui/material/styles'; // Added
+import { useTheme, lighten } from '@mui/material/styles';
 
 const Home = () => {
-	const theme = useTheme(); // Added
+	const theme = useTheme();
 	return (
 		<Box
 			sx={{
-				backgroundColor: lighten(theme.palette.background.default, 0.05), // Added
-				borderRadius: 3, // Optional: for a softer look
+				background: `linear-gradient(135deg, ${lighten(
+					theme.palette.primary.main,
+					0.85
+				)}, ${lighten(theme.palette.background.default, 0.25)})`,
+				borderRadius: 3,
 				minHeight: '60vh',
 				display: 'flex',
 				alignItems: 'center',
@@ -17,8 +20,8 @@ const Home = () => {
 				flexDirection: { xs: 'column', md: 'row' },
 				px: 2,
 				gap: 6,
-				py: 4, // Optional: add vertical padding
-				mt: 4, // Optional: add top margin
+				py: 4,
+				mt: 4,
 			}}
 		>
 			<Box
@@ -73,5 +76,4 @@ const Home = () => {
 		</Box>
 	);
 };
-
 export default Home;
