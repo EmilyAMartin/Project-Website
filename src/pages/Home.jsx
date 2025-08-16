@@ -21,7 +21,6 @@ const Home = () => {
 				px: 2,
 				gap: 6,
 				py: 4,
-				mt: 4,
 			}}
 		>
 			<Box

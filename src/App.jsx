@@ -52,7 +52,7 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<Box sx={{ minHeight: '100vh', py: 4 }}>
+			<Box sx={{ minHeight: '100vh', py: 0 }}>
 				<Navbar
 					toggleTheme={toggleTheme}
 					mode={mode}

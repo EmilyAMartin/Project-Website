@@ -9,9 +9,9 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-
 import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
+import { useTheme } from '@mui/material/styles';
 
 const modalStyle = {
 	position: 'absolute',
@@ -37,6 +37,7 @@ const ProjectCard = ({
 }) => {
 	const [open, setOpen] = useState(false);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+	const theme = useTheme();
 
 	return (
 		<>
@@ -47,6 +48,8 @@ const ProjectCard = ({
 					borderRadius: 3,
 					overflow: 'hidden',
 					transition: 'all 0.3s ease-in-out',
+					background: theme.palette.background.paper,
+					color: theme.palette.text.primary,
 					'&:hover': {
 						transform: 'translateY(-8px)',
 						boxShadow: '0 20px 40px rgba(0,0,0,0.15)',

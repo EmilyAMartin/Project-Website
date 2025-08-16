@@ -16,10 +16,8 @@ const Projects = () => {
 				alignItems: 'center',
 				justifyContent: 'center',
 				textAlign: 'center',
-				mb: 4,
 				py: 4,
 				px: 2,
-				mt: 4,
 			}}
 		>
 			<Typography
