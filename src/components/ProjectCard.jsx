@@ -187,8 +187,8 @@ const ProjectCard = ({
 							variant='outlined'
 							sx={{
 								mb: 2,
-								borderColor: '#00838f',
-								color: '#00838f',
+								borderColor: '#b39ddb',
+								color: '#b39ddb',
 								fontWeight: 500,
 							}}
 						/>
@@ -197,10 +197,10 @@ const ProjectCard = ({
 							sx={{
 								lineHeight: 1.8,
 								fontSize: '1.05rem',
-								backgroundColor: 'rgba(0, 131, 143, 0.03)',
+								backgroundColor: 'rgba(179, 157, 219, 0.08)',
 								p: 2,
 								borderRadius: 2,
-								borderLeft: '4px solid #00838f',
+								borderLeft: '4px solid #b39ddb',
 							}}
 						>
 							{description}
@@ -214,8 +214,8 @@ const ProjectCard = ({
 									label={`Screenshots (${screenshots.length})`}
 									variant='outlined'
 									sx={{
-										borderColor: '#00838f',
-										color: '#00838f',
+										borderColor: '#b39ddb',
+										color: '#b39ddb',
 										fontWeight: 500,
 									}}
 								/>
@@ -247,13 +247,13 @@ const ProjectCard = ({
 										width: '100%',
 										height: '300px',
 										maxHeight: '400px',
-										backgroundColor: 'rgba(0, 131, 143, 0.1)',
+										backgroundColor: 'rgba(179, 157, 219, 0.12)',
 										borderRadius: 3,
-										border: '2px dashed #00838f',
+										border: '2px dashed #b39ddb',
 										justifyContent: 'center',
 										alignItems: 'center',
 										flexDirection: 'column',
-										color: '#00838f',
+										color: '#b39ddb',
 									}}
 								>
 									<Typography
@@ -304,7 +304,7 @@ const ProjectCard = ({
 													transition: 'all 0.2s ease-in-out',
 													border:
 														idx === currentImageIndex
-															? '3px solid #00838f'
+															? '3px solid #b39ddb'
 															: '3px solid transparent',
 													opacity: idx === currentImageIndex ? 1 : 0.7,
 													'&:hover': {
@@ -318,14 +318,14 @@ const ProjectCard = ({
 													display: 'none',
 													width: 60,
 													height: 60,
-													backgroundColor: 'rgba(0, 131, 143, 0.1)',
+													backgroundColor: 'rgba(179, 157, 219, 0.12)',
 													borderRadius: 1,
-													border: '2px dashed #00838f',
+													border: '2px dashed #b39ddb',
 													justifyContent: 'center',
 													alignItems: 'center',
 													cursor: 'pointer',
 													transition: 'all 0.2s ease-in-out',
-													borderColor: idx === currentImageIndex ? '#00838f' : 'transparent',
+													borderColor: idx === currentImageIndex ? '#b39ddb' : 'transparent',
 													opacity: idx === currentImageIndex ? 1 : 0.7,
 													'&:hover': {
 														opacity: 1,
@@ -336,7 +336,7 @@ const ProjectCard = ({
 											>
 												<Typography
 													variant='caption'
-													sx={{ fontSize: '0.6rem', color: '#00838f' }}
+													sx={{ fontSize: '0.6rem', color: '#b39ddb' }}
 												>
 													{idx + 1}
 												</Typography>
