@@ -28,6 +28,7 @@ const Contact = () => {
 					0.85
 				)}, ${lighten(theme.palette.background.default, 0.25)})`,
 				minHeight: '60vh',
+				borderRadius: 3,
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
