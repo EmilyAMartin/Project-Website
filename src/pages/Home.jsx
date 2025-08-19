@@ -1,16 +1,10 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useTheme, lighten } from '@mui/material/styles';
 
 const Home = () => {
-	const theme = useTheme();
 	return (
 		<Box
 			sx={{
-				background: `linear-gradient(135deg, ${lighten(
-					theme.palette.primary.main,
-					0.85
-				)}, ${lighten(theme.palette.background.default, 0.25)})`,
 				borderRadius: 3,
 				minHeight: '60vh',
 				display: 'flex',
@@ -47,7 +41,9 @@ const Home = () => {
 				<Typography
 					variant='h2'
 					gutterBottom
-					sx={{ fontSize: { xs: '2rem', md: '3rem' } }}
+					sx={{
+						fontSize: { xs: '2rem', md: '3rem' },
+					}}
 				>
 					About Me
 				</Typography>

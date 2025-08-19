@@ -6,12 +6,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 import Tooltip from '@mui/material/Tooltip';
-import { useTheme, lighten } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 
 const Contact = () => {
 	const theme = useTheme();
-	const [hover, setHover] = useState(false);
+	// removed hover state, no longer needed after refactor
 	const [sending, setSending] = useState(false);
 
 	const handleSend = (e) => {
@@ -23,64 +23,58 @@ const Contact = () => {
 	return (
 		<Box
 			sx={{
-				background: `linear-gradient(135deg, ${lighten(
-					theme.palette.primary.main,
-					0.85
-				)}, ${lighten(theme.palette.background.default, 0.25)})`,
 				minHeight: '60vh',
 				borderRadius: 3,
 				display: 'flex',
+				flexDirection: 'column',
 				alignItems: 'center',
 				justifyContent: 'center',
+				textAlign: 'center',
 				py: 6,
 				px: { xs: 1, sm: 2 },
 				width: '100%',
 			}}
 		>
+			<Typography
+				variant='h4'
+				align='center'
+				gutterBottom
+				sx={{
+					fontWeight: 700,
+					letterSpacing: 1,
+					background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+					WebkitBackgroundClip: 'text',
+					WebkitTextFillColor: 'transparent',
+				}}
+			>
+				Let’s Connect
+			</Typography>
+			<Typography
+				variant='body1'
+				align='center'
+				color='text.secondary'
+				sx={{ mb: 1 }}
+			>
+				Have a question or want to work together? Fill out the form below!
+			</Typography>
 			<Box
 				component='form'
 				noValidate
 				autoComplete='off'
 				onSubmit={handleSend}
 				sx={{
-					p: { xs: 2, sm: 4 },
 					display: 'flex',
 					flexDirection: 'column',
 					gap: 3,
 					maxWidth: 420,
 					width: '100%',
-					boxShadow: hover ? 8 : 3,
-					borderRadius: 4,
-					background: theme.palette.background.paper,
+					background: 'transparent',
 					color: theme.palette.text.primary,
-					transition: 'box-shadow 0.3s, transform 0.3s',
-					transform: hover ? 'translateY(-4px) scale(1.02)' : 'none',
+					boxShadow: 'none',
+					p: 0,
+					m: '0 auto',
 				}}
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
 			>
-				<Typography
-					variant='h4'
-					align='center'
-					gutterBottom
-					sx={{
-						fontWeight: 700,
-						letterSpacing: 1,
-						background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-						WebkitBackgroundClip: 'text',
-						WebkitTextFillColor: 'transparent',
-					}}
-				>
-					Let’s Connect
-				</Typography>
-				<Typography
-					variant='body1'
-					align='center'
-					color='text.secondary'
-					sx={{ mb: 1 }}
-				>
-					Have a question or want to work together? Fill out the form below!
-				</Typography>
 				<TextField
 					label='Name'
 					variant='outlined'

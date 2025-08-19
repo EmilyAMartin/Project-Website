@@ -9,6 +9,10 @@ const Projects = () => {
 	return (
 		<Box
 			sx={{
+				background: `linear-gradient(135deg, ${lighten(
+					theme.palette.primary.main,
+					0.85
+				)}, ${lighten(theme.palette.background.default, 0.25)})`,
 				borderRadius: 3,
 				minHeight: '60vh',
 				display: 'flex',
@@ -27,9 +31,7 @@ const Projects = () => {
 				sx={{
 					fontWeight: 700,
 					letterSpacing: 1,
-					background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-					WebkitBackgroundClip: 'text',
-					WebkitTextFillColor: 'transparent',
+
 					mb: 3,
 				}}
 			>
