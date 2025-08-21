@@ -9,10 +9,13 @@ const Projects = () => {
 	return (
 		<Box
 			sx={{
-				background: `linear-gradient(135deg, ${lighten(
-					theme.palette.primary.main,
-					0.85
-				)}, ${lighten(theme.palette.background.default, 0.25)})`,
+				background:
+					theme.palette.mode === 'dark'
+						? `linear-gradient(135deg, ${lighten(
+								theme.palette.primary.main,
+								0.85
+						  )}, ${lighten(theme.palette.background.default, 0.25)})`
+						: '#fff',
 				borderRadius: 3,
 				minHeight: '60vh',
 				display: 'flex',
