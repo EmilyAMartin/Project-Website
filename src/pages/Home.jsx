@@ -67,6 +67,53 @@ const Home = () => {
 					urna. Suspendisse potenti. Mauris euismod, sapien eu facilisis cursus, urna
 					erat dictum erat, ac dictum enim urna nec urna.
 				</Typography>
+				<Box sx={{ mt: 4 }}>
+					<Typography
+						variant='h4'
+						gutterBottom
+						sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
+					>
+						Skills
+					</Typography>
+					<Box
+						sx={{
+							display: 'flex',
+							flexWrap: 'wrap',
+							gap: 2,
+							justifyContent: { xs: 'center', md: 'flex-start' },
+						}}
+					>
+						{[
+							'HTML',
+							'CSS',
+							'JavaScript',
+							'React',
+							'Git',
+							'Github',
+							'Node.Js',
+							'Express.Js',
+							'Rest API',
+							'MySQL',
+						].map((skill) => (
+							<Box
+								key={skill}
+								sx={{
+									px: 1.7,
+									py: 0.7,
+									borderRadius: '18px',
+									background: 'linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%)',
+									color: '#222',
+									fontWeight: 500,
+									fontSize: { xs: '0.95rem', md: '1rem' },
+									boxShadow: '0 1px 3px rgba(0,0,0,0.07)',
+									mb: 1,
+								}}
+							>
+								{skill}
+							</Box>
+						))}
+					</Box>
+				</Box>
 			</Box>
 		</Box>
 	);
