@@ -2,22 +2,18 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
-import Tooltip from '@mui/material/Tooltip';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 
 const Contact = () => {
 	const theme = useTheme();
-	// removed hover state, no longer needed after refactor
 	const [sending, setSending] = useState(false);
 
 	const handleSend = (e) => {
 		e.preventDefault();
 		setSending(true);
-		setTimeout(() => setSending(false), 1500); // Simulate send
+		setTimeout(() => setSending(false), 1500);
 	};
 
 	return (

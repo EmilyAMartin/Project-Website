@@ -10,7 +10,6 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import Chip from '@mui/material/Chip';
-import Divider from '@mui/material/Divider';
 import { useTheme } from '@mui/material/styles';
 
 const modalStyle = {
@@ -220,8 +219,6 @@ const ProjectCard = ({
 									}}
 								/>
 							</Box>
-
-							{/* Main Image Display */}
 							<Box sx={{ position: 'relative', mb: 2 }}>
 								<Box
 									component='img'
@@ -270,8 +267,6 @@ const ProjectCard = ({
 									</Typography>
 								</Box>
 							</Box>
-
-							{/* Thumbnail Navigation */}
 							{screenshots.length > 1 && (
 								<Box
 									sx={{

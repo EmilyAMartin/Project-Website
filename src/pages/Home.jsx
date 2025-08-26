@@ -30,7 +30,7 @@ const Home = () => {
 			<Box
 				sx={{
 					display: 'flex',
-					flexDirection: { xs: 'column', md: 'row' }, // Stack on mobile, row on desktop
+					flexDirection: { xs: 'column', md: 'row' },
 					alignItems: 'center',
 					justifyContent: 'center',
 					gap: { xs: 4, md: 8 },
@@ -44,7 +44,7 @@ const Home = () => {
 						display: 'flex',
 						justifyContent: 'center',
 						alignItems: 'center',
-						mb: { xs: 2, md: 0 }, // Add margin below image on mobile
+						mb: { xs: 2, md: 0 },
 					}}
 				>
 					<Box
@@ -94,7 +94,10 @@ const Home = () => {
 						</Typography>
 						<Typography
 							variant='body1'
-							sx={{ mb: 4 }}
+							sx={{
+								mb: 4,
+								px: { xs: 2, md: 0 },
+							}}
 						>
 							Hi, I'm Emily! I'm a visual artist and software developer. With a
 							lifelong passion for art and film, I love problem-solving and creating
@@ -116,7 +119,7 @@ const Home = () => {
 									flexWrap: 'wrap',
 									gap: 2,
 									justifyContent: { xs: 'center', md: 'flex-start' },
-									px: { xs: 2, md: 0 }, // Add horizontal padding on mobile
+									px: { xs: 2, md: 0 },
 								}}
 							>
 								{skills.map((skill) => (

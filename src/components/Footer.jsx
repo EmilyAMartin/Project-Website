@@ -11,7 +11,7 @@ const Footer = () => (
 			mt: 8,
 			py: 3,
 			textAlign: 'center',
-			background: (theme) => theme.palette.background.default, // Matches Home page background
+			background: (theme) => theme.palette.background.default,
 			borderRadius: 3,
 		}}
 	>
