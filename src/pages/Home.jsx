@@ -47,14 +47,15 @@ const Home = () => {
 						mb: { xs: 2, md: 0 }, // Add margin below image on mobile
 					}}
 				>
-					<img
+					<Box
+						component='img'
 						src='/profileimg.jpg'
 						alt='Emily Martin'
-						style={{
-							width: 'min(70vw, 220px)', // Smaller on mobile
-							height: 'min(70vw, 220px)',
-							maxWidth: 320,
-							maxHeight: 320,
+						sx={{
+							width: { xs: 'min(70vw, 220px)', md: 'min(40vw, 562.5px)' },
+							height: { xs: 'min(70vw, 220px)', md: 'min(40vw, 562.5px)' },
+							maxWidth: { xs: 220, md: 375 },
+							maxHeight: { xs: 220, md: 375 },
 							objectFit: 'cover',
 							borderRadius: '50%',
 							boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
@@ -105,7 +106,7 @@ const Home = () => {
 							<Typography
 								variant='h4'
 								gutterBottom
-								sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
+								sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, mb: 4 }}
 							>
 								Skills
 							</Typography>
@@ -115,6 +116,7 @@ const Home = () => {
 									flexWrap: 'wrap',
 									gap: 2,
 									justifyContent: { xs: 'center', md: 'flex-start' },
+									px: { xs: 2, md: 0 }, // Add horizontal padding on mobile
 								}}
 							>
 								{skills.map((skill) => (
