@@ -59,13 +59,11 @@ const Home = () => {
 					variant='body1'
 					sx={{ maxWidth: 600, mb: 4, mx: { xs: 'auto', md: 0 } }}
 				>
-					Welcome! I’m Emily, Lorem ipsum dolor sit amet, consectetur adipiscing
-					elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim,
-					eget facilisis enim urna at sapien. Pellentesque habitant morbi tristique
-					senectus et netus et malesuada fames ac turpis egestas. Etiam euismod,
-					justo at facilisis cursus, urna erat dictum erat, ac dictum enim urna nec
-					urna. Suspendisse potenti. Mauris euismod, sapien eu facilisis cursus, urna
-					erat dictum erat, ac dictum enim urna nec urna.
+					Hi, I'm Emily! I'm a visual artist and software development. With a
+					lifelong passion for art and film, I love problem-solving and creating new
+					things. Recently, I’ve developed an interest in coding and aspire to become
+					a full-stack developer in the near future. Follow me on GitHub for my most
+					recent projects.
 				</Typography>
 				<Box sx={{ mt: 4 }}>
 					<Typography
