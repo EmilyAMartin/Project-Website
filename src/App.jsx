@@ -54,7 +54,7 @@ function App() {
 				<section id='contact'>
 					<Contact />
 				</section>
-				<Footer /> {/* Footer is now always visible at the bottom */}
+				<Footer />
 			</Box>
 		</ThemeProvider>
 	);
