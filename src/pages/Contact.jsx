@@ -148,52 +148,6 @@ const Contact = () => {
 				>
 					{sending ? 'Sending...' : 'Send Message'}
 				</Button>
-				<Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 2 }}>
-					<Tooltip
-						title='GitHub'
-						arrow
-					>
-						<a
-							href='https://github.com/EmilyAMartin'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='GitHub'
-						>
-							<GitHubIcon
-								fontSize='large'
-								sx={{
-									color: theme.palette.mode === 'dark' ? '#fff' : '#222',
-									transition: 'color 0.2s',
-									'&:hover': {
-										color: theme.palette.primary.main,
-									},
-								}}
-							/>
-						</a>
-					</Tooltip>
-					<Tooltip
-						title='LinkedIn'
-						arrow
-					>
-						<a
-							href='https://www.linkedin.com/in/emily-martin-5864492ba'
-							target='_blank'
-							rel='noopener noreferrer'
-							aria-label='LinkedIn'
-						>
-							<LinkedInIcon
-								fontSize='large'
-								sx={{
-									color: theme.palette.mode === 'dark' ? '#fff' : '#222',
-									transition: 'color 0.2s',
-									'&:hover': {
-										color: theme.palette.primary.main,
-									},
-								}}
-							/>
-						</a>
-					</Tooltip>
-				</Box>
 			</Box>
 		</Box>
 	);

@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { motion } from 'framer-motion'; // <-- Add this import
 
 const Home = () => {
 	return (
@@ -37,82 +38,97 @@ const Home = () => {
 					}}
 				/>
 			</Box>
-			<Box>
-				<Typography
-					variant='h2'
-					gutterBottom
-					sx={{
-						fontSize: { xs: '2rem', md: '3rem' },
-					}}
-				>
-					About Me
-				</Typography>
-				<Typography
-					variant='h5'
-					color='text.secondary'
-					gutterBottom
-					sx={{ fontSize: { xs: '1.1rem', md: '1.5rem' } }}
-				>
-					Software Developer & Visual Artist
-				</Typography>
-				<Typography
-					variant='body1'
-					sx={{ maxWidth: 600, mb: 4, mx: { xs: 'auto', md: 0 } }}
-				>
-					Hi, I'm Emily! I'm a visual artist and software development. With a
-					lifelong passion for art and film, I love problem-solving and creating new
-					things. Recently, I’ve developed an interest in coding and aspire to become
-					a full-stack developer in the near future. Follow me on GitHub for my most
-					recent projects.
-				</Typography>
-				<Box sx={{ mt: 4 }}>
+			{/* Animate the right side content */}
+			<motion.div
+				initial={{ opacity: 0, y: 40 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, ease: 'easeOut' }}
+				style={{ width: '100%' }}
+			>
+				<Box>
 					<Typography
-						variant='h4'
+						variant='h2'
 						gutterBottom
-						sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
-					>
-						Skills
-					</Typography>
-					<Box
 						sx={{
-							display: 'flex',
-							flexWrap: 'wrap',
-							gap: 2,
-							justifyContent: { xs: 'center', md: 'flex-start' },
+							fontSize: { xs: '2rem', md: '3rem' },
 						}}
 					>
-						{[
-							'HTML',
-							'CSS',
-							'JavaScript',
-							'React',
-							'Git',
-							'Github',
-							'Node.Js',
-							'Express.Js',
-							'Rest API',
-							'MySQL',
-						].map((skill) => (
-							<Box
-								key={skill}
-								sx={{
-									px: 1.7,
-									py: 0.7,
-									borderRadius: '18px',
-									background: 'linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%)',
-									color: '#222',
-									fontWeight: 500,
-									fontSize: { xs: '0.95rem', md: '1rem' },
-									boxShadow: '0 1px 3px rgba(0,0,0,0.07)',
-									mb: 1,
-								}}
-							>
-								{skill}
-							</Box>
-						))}
+						About Me
+					</Typography>
+					<Typography
+						variant='h5'
+						color='text.secondary'
+						gutterBottom
+						sx={{ fontSize: { xs: '1.1rem', md: '1.5rem' } }}
+					>
+						Software Developer & Visual Artist
+					</Typography>
+					<Typography
+						variant='body1'
+						sx={{ maxWidth: 600, mb: 4, mx: { xs: 'auto', md: 0 } }}
+					>
+						Hi, I'm Emily! I'm a visual artist and software development. With a
+						lifelong passion for art and film, I love problem-solving and creating new
+						things. Recently, I’ve developed an interest in coding and aspire to
+						become a full-stack developer in the near future. Follow me on GitHub for
+						my most recent projects.
+					</Typography>
+					<Box sx={{ mt: 4 }}>
+						<Typography
+							variant='h4'
+							gutterBottom
+							sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}
+						>
+							Skills
+						</Typography>
+						<Box
+							sx={{
+								display: 'flex',
+								flexWrap: 'wrap',
+								gap: 2,
+								justifyContent: { xs: 'center', md: 'flex-start' },
+							}}
+						>
+							{[
+								'HTML',
+								'CSS',
+								'JavaScript',
+								'React',
+								'Git',
+								'Github',
+								'Node.Js',
+								'Express.Js',
+								'Rest API',
+								'MySQL',
+							].map((skill) => (
+								<Box
+									key={skill}
+									sx={{
+										px: 1.7,
+										py: 0.7,
+										borderRadius: '18px',
+										background: 'linear-gradient(90deg, #e0e0e0 0%, #bdbdbd 100%)',
+										color: '#222',
+										fontWeight: 500,
+										fontSize: { xs: '0.95rem', md: '1rem' },
+										boxShadow: '0 1px 3px rgba(0,0,0,0.07)',
+										mb: 1,
+										cursor: 'pointer',
+										transition: 'transform 0.2s, box-shadow 0.2s',
+										'&:hover': {
+											transform: 'scale(1.12)',
+											boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+											background: 'linear-gradient(90deg, #f5f5f5 0%, #bdbdbd 100%)',
+										},
+									}}
+								>
+									{skill}
+								</Box>
+							))}
+						</Box>
 					</Box>
 				</Box>
-			</Box>
+			</motion.div>
 		</Box>
 	);
 };

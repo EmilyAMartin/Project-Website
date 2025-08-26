@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
+import Footer from './components/Footer';
 
 function App() {
 	const [mode, setMode] = useState('dark');
@@ -24,24 +25,12 @@ function App() {
 				'Arial',
 				'sans-serif',
 			].join(','),
-			h1: {
-				fontWeight: 600,
-			},
-			h2: {
-				fontWeight: 600,
-			},
-			h3: {
-				fontWeight: 600,
-			},
-			h4: {
-				fontWeight: 600,
-			},
-			h5: {
-				fontWeight: 600,
-			},
-			h6: {
-				fontWeight: 600,
-			},
+			h1: { fontWeight: 600 },
+			h2: { fontWeight: 600 },
+			h3: { fontWeight: 600 },
+			h4: { fontWeight: 600 },
+			h5: { fontWeight: 600 },
+			h6: { fontWeight: 600 },
 		},
 	});
 
@@ -65,9 +54,9 @@ function App() {
 				<section id='contact'>
 					<Contact />
 				</section>
+				<Footer /> {/* Footer is now always visible at the bottom */}
 			</Box>
 		</ThemeProvider>
 	);
 }
-
 export default App;
