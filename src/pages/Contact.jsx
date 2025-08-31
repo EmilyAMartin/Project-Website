@@ -27,7 +27,7 @@ const Contact = () => {
 				justifyContent: 'center',
 				textAlign: 'center',
 				py: 6,
-				px: { xs: 1, sm: 2 },
+				px: { xs: 4, sm: 2 },
 				width: '100%',
 			}}
 		>

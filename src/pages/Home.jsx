@@ -96,7 +96,7 @@ const Home = () => {
 							variant='body1'
 							sx={{
 								mb: 4,
-								px: { xs: 2, md: 0 },
+								px: { xs: 4, md: 0 },
 							}}
 						>
 							Hi, I'm Emily! I'm a visual artist and software developer. With a
@@ -119,7 +119,7 @@ const Home = () => {
 									flexWrap: 'wrap',
 									gap: 2,
 									justifyContent: { xs: 'center', md: 'flex-start' },
-									px: { xs: 2, md: 0 },
+									px: { xs: 4, md: 0 },
 								}}
 							>
 								{skills.map((skill) => (
