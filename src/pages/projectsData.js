@@ -19,9 +19,17 @@ const projectsData = [
 		title: 'Portfolio',
 		subtitle: 'React, Material-UI,API',
 		description:
-			'Portfolio is a web platform I developed to support artists and creators in cataloging their work while also discovering inspiration from others. It features an Artwork Page for users to upload, organize, and manage their own pieces; a Gallery Page that integrates with the Art Institute of Chicago’s open API, allowing users to browse and save works from their collection; and an Account Page where users can create personal profiles and manage their accounts. Visitors can simply explore the gallery for inspiration or sign up to upload their own projects, curate collections, and build a personalized catalog of favorite works. This project was inspired by my own need for a space to archive my art—one that would allow creators like myself to easily document their work, find inspiration, and brainstorm ideas within a unified and user-friendly platform.',
+			"Portfolio is a web platform I developed to support artists and creators in cataloging their work while also discovering inspiration from others. It features an Artwork Page for users to upload, organize, and manage their own pieces; a Gallery Page that integrates with the Art Institute of Chicago's open API, allowing users to browse and save works from their collection; and an Account Page where users can create personal profiles and manage their accounts. Visitors can simply explore the gallery for inspiration or sign up to upload their own projects, curate collections, and build a personalized catalog of favorite works. This project was inspired by my own need for a space to archive my art—one that would allow creators like myself to easily document their work, find inspiration, and brainstorm ideas within a unified and user-friendly platform.",
 		image: '/portfolio.jpg',
 		screenshots: ['/8.jpg', '/9.jpg', '/10.jpg', '/11.jpg'],
+	},
+	{
+		title: 'Film Journal',
+		subtitle: 'React, Material-UI, API',
+		description:
+			'Film Journal is a web application designed for movie lovers who want to track their film experiences, create personalized watchlists, and curate favorite films all in one place. The app focuses on simplicity, storing user data locally rather than requiring an account or online database.',
+		image: '/filmjournal.jpg',
+		screenshots: ['/12.jpg', '/13.jpg'],
 	},
 ];
 

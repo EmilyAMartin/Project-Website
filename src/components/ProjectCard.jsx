@@ -42,10 +42,14 @@ const ProjectCard = ({
 		<>
 			<Card
 				sx={{
+					width: '100%',
 					maxWidth: 690,
+					minHeight: 450,
 					m: 3,
 					borderRadius: 3,
 					overflow: 'hidden',
+					display: 'flex',
+					flexDirection: 'column',
 					transition: 'all 0.3s ease-in-out',
 					background: theme.palette.background.paper,
 					color: theme.palette.text.primary,
@@ -63,7 +67,12 @@ const ProjectCard = ({
 			>
 				<CardActionArea
 					onClick={() => setOpen(true)}
-					sx={{ position: 'relative' }}
+					sx={{ 
+						position: 'relative',
+						flex: 1,
+						display: 'flex',
+						flexDirection: 'column',
+					}}
 				>
 					{image && (
 						<Box sx={{ position: 'relative', overflow: 'hidden' }}>
@@ -74,8 +83,11 @@ const ProjectCard = ({
 								alt={title}
 								className='card-media'
 								sx={{
+									width: '100%',
+									height: 280,
 									transition: 'transform 0.3s ease-in-out',
 									objectFit: 'cover',
+									display: 'block',
 								}}
 							/>
 							<Box
@@ -96,7 +108,7 @@ const ProjectCard = ({
 							</Box>
 						</Box>
 					)}
-					<CardContent sx={{ p: 3 }}>
+					<CardContent sx={{ p: 3, flex: 1, display: 'flex', flexDirection: 'column' }}>
 						<Typography
 							gutterBottom
 							variant='h5'
