@@ -29,7 +29,7 @@ const projectsData = [
 		description:
 			'Film Journal is a web application designed for movie lovers who want to track their film experiences, create personalized watchlists, and curate favorite films all in one place. The app focuses on simplicity, storing user data locally rather than requiring an account or online database.',
 		image: '/filmjournal.jpg',
-		screenshots: ['/12.jpg', '/13.jpg', '/14.jpg'],
+		screenshots: ['/12.jpg', '/13.jpg', '/14.jpg,', '/15.jpg'],
 	},
 ];
 
